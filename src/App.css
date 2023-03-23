@@ -24,6 +24,11 @@ ul.todo-list li{
 
 }
 
+.todo.checked{
+  color: #b2bec3;
+  text-decoration: line-through;
+}
+
 .remove{
   background-color: transparent;
   border: none;
