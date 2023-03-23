@@ -49,6 +49,10 @@ const App = () => {
     );
   };
 
+  const onRemove = (todo) => {
+    setTodos(todos.filter((obj) => obj.id !== todo.id));
+  };
+
   return (
     <section id="app" className="container">
       <header>
@@ -67,7 +71,7 @@ const App = () => {
             <li key={todo.id.toString()}>
               <span className={["todo", todo.checked ? "checked" : ""].join(" ")} onClick={() => onToggle(todo)} onkeyPress={() => onToggle(todo)}
               role="button" tabIndex={0}>{todo.title}</span>
-              <button type="button" className="remove">
+              <button type="button" className="remove" onClick={() => onRemove(todo)}>
                 <MdDelete size={28} />
               </button>
             </li>
