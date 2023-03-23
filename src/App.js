@@ -7,13 +7,9 @@ const App = () => {
   const ESCAPE_KEY = 27;
   const ENTER_KEY = 13;
 
-  const initialTodos = [
-    { id: 1, title: 'Estudar React', checked: false },
-    { id: 2, title: 'Estudar Inglês', checked: true },
-    { id: 3, title: 'Tocar Guitarra', checked: false },
-  ];
 
-  const [todos,] = useState(initialTodos);
+
+  const [todos, setTodos] = useState([]);
   const [value, setValue] = useState("");
 
   const erase = () => {
@@ -21,9 +17,16 @@ const App = () => {
   };
 
   const submit = () => {
-    console.log('submit', value);
+    setTodos([
+      ...todos,
+      {
+      id: new Date().getTime(),
+      title: value,
+      checked: false,
+      },
+    ]);
     erase();
-  }
+  };
 
   const onChange = (event) => {
     setValue(event.target.value);
@@ -54,7 +57,7 @@ const App = () => {
           {todos.map((todo) => (
             <li key={todo.id.toString()}>
               <span className="todo">{todo.title}</span>
-              <button type="button">
+              <button type="button" className="remove">
                 <MdDelete size={28} />
               </button>
             </li>
