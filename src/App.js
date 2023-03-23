@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MdDelete } from 'react-icons/md';
 
 import "./App.css";
 
@@ -6,6 +7,13 @@ const App = () => {
   const ESCAPE_KEY = 27;
   const ENTER_KEY = 13;
 
+  const initialTodos = [
+    { id: 1, title: 'Estudar React', checked: false },
+    { id: 2, title: 'Estudar Inglês', checked: true },
+    { id: 3, title: 'Tocar Guitarra', checked: false },
+  ];
+
+  const [todos,] = useState(initialTodos);
   const [value, setValue] = useState("");
 
   const erase = () => {
@@ -32,7 +40,7 @@ const App = () => {
   return (
     <section id="app" className="container">
       <header>
-        <h1 className="title">Lista</h1>
+        <h1 className="title">todo</h1>
       </header>
       <section className="main">
         <input
@@ -42,6 +50,17 @@ const App = () => {
           onChange={onChange}
           onKeyDown={onKeyDown}
         />
+        <ul className="todo-list">
+          {todos.map((todo) => (
+            <li key={todo.id.toString()}>
+              <span className="todo">{todo.title}</span>
+              <button type="button">
+                <MdDelete size={28} />
+              </button>
+            </li>
+
+          ))}
+        </ul>
       </section>
     </section>
   );
