@@ -10,7 +10,8 @@ html {
 }
 
 body {
-  background-color: #ffeaa7;
+  background-image: linear-gradient(to right, rgb(243, 225, 192), rgb(241, 180, 105), rgba(154, 135, 94, 0.819), rgba(92, 69, 12, 0.83));
+    background-size: 200% 100%;
   user-select: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,12 +70,12 @@ textarea {
 }
 
 .main {
-  background-color: #fff;
+  background-color: #f3e0c3;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .title {
-  color: #fab1a0;
+  color: #835c53;
   font-size: 64px;
   font-weight: 100;
   text-align: center;
