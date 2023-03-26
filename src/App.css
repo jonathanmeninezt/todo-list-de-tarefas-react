@@ -36,4 +36,9 @@ ul.todo-list li{
   cursor: pointer;
   outline: none;
   width: 50%;
+  opacity: 0.8;
+}
+
+.remove:hover{
+  opacity: 1;
 }
