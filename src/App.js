@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import { MdDelete } from 'react-icons/md';
+import NewTodo from './components/New Todo'
 
 import "./App.css";
 
 const App = () => {
-  const ESCAPE_KEY = 27;
-  const ENTER_KEY = 13;
-
-
-
   const [todos, setTodos] = useState([]);
-  const [value, setValue] = useState("");
 
-  const erase = () => {
-    setValue("");
-  };
-
-  const submit = () => {
+  const onNewtodo = (value) => {
     setTodos([
       ...todos,
       {
@@ -25,20 +16,8 @@ const App = () => {
       checked: false,
       },
     ]);
-    erase();
-  };
+  }
 
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const onKeyDown = (event) => {
-    if (event.which === ENTER_KEY) {
-      submit();
-    } else if (event.which === ESCAPE_KEY) {
-      erase();
-    }
-  };
 
   const onToggle = (todo) => {
     setTodos(
@@ -59,13 +38,7 @@ const App = () => {
         <h1 className="title">tarefas</h1>
       </header>
       <section className="main">
-        <input
-          className="new-todo"
-          placeholder="o que precisa ser feito?"
-          value={value}
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-        />
+        <NewTodo onNewTodo={onNewtodo} />
         <ul className="todo-list">
           {todos.map((todo) => (
             <li key={todo.id.toString()}>
